@@ -18,7 +18,7 @@ function checking() {
         pady[i][j].parentElement.classList.add("corectly");
       } else if(Array.isArray(PADY[i][j])) {
           for(var x = 0; x < PADY[i][j].length; x++) {
-            if(pady[i][j].value == PADY[i][j][x]) {
+            if(pady[i][j].value.replace(/\s+/g,'').toLowerCase() == PADY[i][j][x]) {
               pady[i][j].parentElement.classList.add("corectly");
               break;
             } else {
