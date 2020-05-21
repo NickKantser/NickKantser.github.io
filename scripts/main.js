@@ -14,8 +14,19 @@ function tryingAgain() {
 function checking() {
   for(var i = 0; i < pady.length; i++) {
     for(var j = 0; j < pady[i].length; j++) {
-      if(pady[i][j].value.replace(/\s+/g,'') == PADY[i][j] || pady[i][j].value == "městě") {
+      if(pady[i][j].value.replace(/\s+/g,'') == PADY[i][j]) {
         pady[i][j].parentElement.classList.add("corectly");
+      } else if(Array.isArray(PADY[i][j])) {
+          for(var x = 0; x < PADY[i][j].length; x++) {
+            if(pady[i][j].value == PADY[i][j][x]) {
+              pady[i][j].parentElement.classList.add("corectly");
+              break;
+            } else {
+              pady[i][j].parentElement.classList.remove("corectly");
+              pady[i][j].parentElement.classList.add("wrong");
+              pady[i][j].classList.add("italic");
+            }
+          }
       } else {
         pady[i][j].parentElement.classList.remove("corectly");
         pady[i][j].parentElement.classList.add("wrong");
@@ -25,7 +36,6 @@ function checking() {
     }
   }
 }
-
 var PADY = [GEN, DAT, ACC, LOK, INSTR];
 
 var gen = document.getElementsByClassName("gen");
