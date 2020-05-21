@@ -207,6 +207,7 @@ transition: background .4s;
 }
 .corectly {
   background: #05ca0d;
+  font-style: normal;
 }
 .italic {
   font-style: italic;
