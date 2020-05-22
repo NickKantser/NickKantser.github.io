@@ -7,9 +7,12 @@ function tryingAgain() {
       pady[i][j].parentElement.classList.remove("wrong", "corectly");
       pady[i][j].value = "";
       pady[i][j].classList.remove("italic");
+      pady[0][0].focus();
     }
   }
 }
+
+
 
 function checking() {
   for(var i = 0; i < pady.length; i++) {
@@ -19,6 +22,8 @@ function checking() {
       } else if(Array.isArray(PADY[i][j])) {
           for(var x = 0; x < PADY[i][j].length; x++) {
             if(pady[i][j].value.replace(/\s+/g,'').toLowerCase() == PADY[i][j][x]) {
+              pady[i][j].parentElement.classList.remove("wrong");
+              pady[i][j].classList.remove("italic");
               pady[i][j].parentElement.classList.add("corectly");
               break;
             } else {
